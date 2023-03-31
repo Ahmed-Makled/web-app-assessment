@@ -1,0 +1,17 @@
+<div class="section-title" >
+  <div class="container">
+    <h1>{{ title.getTitle().split(' - ')[0] }}</h1>
+
+    <ul class="breadcrumbs">
+      <li><a routerLink="">Home</a></li>
+
+      <li *ngFor="let route of breadcrumbs">
+        <a (click)="$event.preventDefault(); goToRoute(route)">
+          {{ (route ).split(' - ')[0]}}
+        </a>
+      </li>
+
+      <li>{{ title.getTitle().split(' - ')[0] }}</li>
+    </ul>
+  </div>
+</div>
