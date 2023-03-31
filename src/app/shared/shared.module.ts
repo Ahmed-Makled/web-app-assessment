@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuToggleButtonDirective } from './directives/menu-toggle-button.directive';
 import { TitleAndBreadcrumbsComponent } from './ui-elements/title-and-breadcrumbs/title-and-breadcrumbs.component';
+import { SimplePaginationComponent } from './ui-elements/simple-pagination/simple-pagination.component';
 
 
 
@@ -16,6 +17,7 @@ const sharedComponents = [
 // ui elements components
 const uiElementsComponents = [
   TitleAndBreadcrumbsComponent,
+  SimplePaginationComponent
 
 ];
 
@@ -23,6 +25,7 @@ const uiElementsComponents = [
 const customDirectives = [
 
   MenuToggleButtonDirective,
+
 
 ];
 

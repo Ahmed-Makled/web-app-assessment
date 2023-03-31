@@ -7,6 +7,7 @@ import { OrderProductViewModel, OrderViewModel } from 'src/app/shared/models/ord
 import { UsersService } from 'src/app/shared/services/user.service';
 import { ProductViewModel } from 'src/app/shared/models/products/product.model';
 import { UserViewModel } from 'src/app/shared/models/users/user.model';
+import { SimplePaginationService } from 'src/app/shared/ui-elements/simple-pagination/simple-pagination.service';
 
 @Component({
   selector: 'app-products-view',
@@ -21,6 +22,7 @@ export class OrdersViewComponent implements OnInit {
   constructor(
     private title: Title,
     private TitleAndBreadcrumbsService: TitleAndBreadcrumbsService,
+    public simplePaginationSer: SimplePaginationService,
     private OrdersService: OrdersService,
     private ProductsService: ProductsService,
     private UsersServices: UsersService,
@@ -38,6 +40,12 @@ export class OrdersViewComponent implements OnInit {
     this.OrdersService.get().subscribe(res => {
       if (res) {
         this.orders = res as OrderViewModel[]
+
+        this.simplePaginationSer.initPagination(this.orders, 5)
+
+        // // To update the pagination options after filtering or sorting
+        // this.simplePaginationSer.spOptions.allItemsCount = filteredOrders.length;
+        // this.simplePaginationSer.update();
       }
     })
   }
@@ -57,6 +65,17 @@ export class OrdersViewComponent implements OnInit {
     })
   }
 
+  // getOrdersForPage(pageNumber?: number): OrderViewModel[] {
+  //   const startIndex = (pageNumber - 1) * this.ordersPerPage;
+  //   const endIndex = startIndex + this.ordersPerPage;
+  //   return this.orders.slice(startIndex, endIndex);
+  // }
+  // getPageArray(): number[] {
+  //   const pageCount = Math.ceil(this.orders.length / this.ordersPerPage);
+  //   return Array.from({ length: pageCount }, (_, i) => i + 1);
+  // }
+
+
   getTotalPrice(products: OrderProductViewModel[]): number {
     let totalPrice = 0;
     products.forEach(product => {
@@ -73,6 +92,15 @@ export class OrdersViewComponent implements OnInit {
     const user = this.users.find(u => u.Id === userId);
     return user ? user.Name : 'Unknown user';
   }
+
+  getNextPage() {
+    this.simplePaginationSer.getNextPage();
+  }
+
+  getPrevPage() {
+    this.simplePaginationSer.getPrevPage();
+  }
+
 
   // for ngFor trackBy
   track(index: number, order: OrderViewModel) {

@@ -20,7 +20,7 @@
           <tr class="no-items-msg" *ngIf="!orders?.length">
             <td colspan="4">There are no orders yet.</td>
           </tr>
-          <tr class="good" *ngFor="let item of orders ; trackBy: track">
+          <tr class="good" *ngFor="let item of simplePaginationSer.spOptions.pagedData; trackBy: track">
             <td >
              {{item?.OrderId}}
             </td>
@@ -59,9 +59,12 @@
       </div>
     </section>
     <div class="the-main-box-footer">
+      <!-- <div class="pagination">
+        <button *ngFor="let page of getPageArray()" (click)="currentPage = page">{{ page }}</button>
+      </div> -->
       <!-- simple pagination with items count -->
-      <!-- <app-simple-pagination *ngIf="goods?.length" (callPrev)="getPrevPage()"
-        (callNext)="getNextPage()"></app-simple-pagination> -->
+      <app-simple-pagination (callPrev)="getPrevPage()"
+        (callNext)="getNextPage()" [spOptions]="simplePaginationSer.spOptions"></app-simple-pagination>
 
       <!-- <a routerLink="../../add" [ngClass]="{
         'add-new': goods?.length,
