@@ -4,10 +4,10 @@
     <div class="menu-btn-and-logo">
       <div class="logo">
         <h2 class="title">
-          <a >DevHouse</a>
+          <a>DevHouse</a>
         </h2>
       </div>
-      <div class="menu-btn open" [appMenuToggleButton]="sideMenu" bodyClass="side-menu-open" [closeOnNavigate]="false" >
+      <div class="menu-btn open" [appMenuToggleButton]="sideMenu" bodyClass="side-menu-open" [closeOnNavigate]="false">
         <span></span>
         <span></span>
         <span></span>
@@ -43,13 +43,13 @@
 
   <!-- user card area -->
   <div class="user-container">
-    <a  class="user-img">
+    <a class="user-img">
 
       <img src="../../../assets/images/icons/user/user-avatar.png" [alt]="'Ahmed Makled'">
     </a>
     <div class="user-text">
       <h3 class="name">
-        <a >
+        <a>
           Ahmed Makled
         </a>
       </h3>
@@ -63,17 +63,18 @@
   <ul class="menu">
 
     <li>
-      <a routerLink="/admin-dashboard/products/index" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a routerLink="/admin-dashboard/products/index" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
         <img src="../../../assets/images/icons/admin/categories.png" [alt]="'Products' ">
         Products
       </a>
     </li>
-<li>
-  <a routerLink="/admin-dashboard/orders/index" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-    <img src="../../../assets/images/icons/admin/requests.png" [alt]="'Products' ">
-    Orders
-  </a>
-</li>
+    <li>
+      <a routerLink="/admin-dashboard/orders/index" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <img src="../../../assets/images/icons/admin/requests.png" [alt]="'Products' ">
+        Orders
+      </a>
+    </li>
 
 
 

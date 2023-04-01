@@ -6,6 +6,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { MenuToggleButtonDirective } from './directives/menu-toggle-button.directive';
 import { TitleAndBreadcrumbsComponent } from './ui-elements/title-and-breadcrumbs/title-and-breadcrumbs.component';
 import { SimplePaginationComponent } from './ui-elements/simple-pagination/simple-pagination.component';
+import { FileUploadComponent } from './ui-elements/forms/file-upload/file-upload.component';
+import { InputNumberComponent } from './ui-elements/forms/input-number/input-number.component';
+import { InputMaskDirective } from './directives/mask.directive';
 
 
 
@@ -17,7 +20,9 @@ const sharedComponents = [
 // ui elements components
 const uiElementsComponents = [
   TitleAndBreadcrumbsComponent,
-  SimplePaginationComponent
+  SimplePaginationComponent,
+  FileUploadComponent,
+  InputNumberComponent
 
 ];
 
@@ -25,6 +30,7 @@ const uiElementsComponents = [
 const customDirectives = [
 
   MenuToggleButtonDirective,
+  InputMaskDirective
 
 
 ];

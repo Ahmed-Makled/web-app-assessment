@@ -2,8 +2,8 @@
   <div class="the-main-box">
     <section class="box">
       <div class="box-content">
-        <table class="goods">
-          <tr class="good goods-header">
+        <table class="table">
+          <tr class="table-row table-header">
             <th class="img-and-name">
               <h5>ProductName</h5>
             </th>
@@ -17,7 +17,7 @@
           <tr class="no-items-msg" *ngIf="!products?.length">
             <td colspan="4">There are no products yet.</td>
           </tr>
-          <tr class="good" *ngFor="let item of products; trackBy: track">
+          <tr class="table-row" *ngFor="let item of SimplePaginationService.spOptions.pagedData; trackBy: track">
             <td class="img-and-name">
               <a><img [src]="item?.ProductImg" [alt]="item?.ProductImg"></a>
               <a><span>{{item?.ProductName}}</span></a>
@@ -38,7 +38,7 @@
                   </a>
                 </li>
                 <li>
-                  <a>
+                  <a routerLink="/admin-dashboard/products/edit/{{item.ProductId}}">
                     <img src="../../../assets/images/icons/edit-tool.png" alt="edit" />
                     Edit
                   </a>
@@ -57,16 +57,13 @@
     </section>
     <div class="the-main-box-footer">
       <!-- simple pagination with items count -->
-      <!-- <app-simple-pagination *ngIf="goods?.length" (callPrev)="getPrevPage()"
-        (callNext)="getNextPage()"></app-simple-pagination> -->
+      <app-simple-pagination (callPrev)="getPrevPage()" (callNext)="getNextPage()"
+        [spOptions]="SimplePaginationService.spOptions"></app-simple-pagination>
 
-      <!-- <a routerLink="../../add" [ngClass]="{
-        'add-new': goods?.length,
-        'rounded-btn color-one solid reverse shadow': !goods?.length
-      }">
+      <a [ngClass]="{ 'add-new': products?.length, 'rounded-btn color-one solid reverse shadow': !products?.length }">
         <i class="fa fa-plus" aria-hidden="true"></i>
-        {{ 'products-page.add-new' }}
-      </a> -->
+        Add New
+      </a>
     </div>
   </div>
 </div>

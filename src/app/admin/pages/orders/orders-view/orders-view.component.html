@@ -10,19 +10,19 @@
             <th>
               <h5>OrderDate</h5>
             </th>
-            <th >
+            <th>
               <h5>Username</h5>
             </th>
-            <th >
+            <th>
               <h5>ProductPrice</h5>
             </th>
           </tr>
           <tr class="no-items-msg" *ngIf="!orders?.length">
             <td colspan="4">There are no orders yet.</td>
           </tr>
-          <tr class="table-row" *ngFor="let item of simplePaginationSer.spOptions.pagedData; trackBy: track">
-            <td >
-             {{item?.OrderId}}
+          <tr class="table-row" *ngFor="let item of SimplePaginationService.spOptions.pagedData; trackBy: track">
+            <td>
+              {{item?.OrderId}}
             </td>
             <td> {{item?.OrderDate}}</td>
             <td>{{getUserNameById(item?.UserId)}}</td>
@@ -59,20 +59,11 @@
       </div>
     </section>
     <div class="the-main-box-footer">
-      <!-- <div class="pagination">
-        <button *ngFor="let page of getPageArray()" (click)="currentPage = page">{{ page }}</button>
-      </div> -->
-      <!-- simple pagination with items count -->
-      <app-simple-pagination (callPrev)="getPrevPage()"
-        (callNext)="getNextPage()" [spOptions]="simplePaginationSer.spOptions"></app-simple-pagination>
 
-      <!-- <a routerLink="../../add" [ngClass]="{
-        'add-new': goods?.length,
-        'rounded-btn color-one solid reverse shadow': !goods?.length
-      }">
-        <i class="fa fa-plus" aria-hidden="true"></i>
-        {{ 'products-page.add-new' }}
-      </a> -->
+      <!-- simple pagination with items count -->
+      <app-simple-pagination (callPrev)="getPrevPage()" (callNext)="getNextPage()"
+        [spOptions]="SimplePaginationService.spOptions"></app-simple-pagination>
+
     </div>
   </div>
 </div>

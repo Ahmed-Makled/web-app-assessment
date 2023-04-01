@@ -22,7 +22,7 @@ export class OrdersViewComponent implements OnInit {
   constructor(
     private title: Title,
     private TitleAndBreadcrumbsService: TitleAndBreadcrumbsService,
-    public simplePaginationSer: SimplePaginationService,
+    public SimplePaginationService: SimplePaginationService,
     private OrdersService: OrdersService,
     private ProductsService: ProductsService,
     private UsersServices: UsersService,
@@ -40,12 +40,7 @@ export class OrdersViewComponent implements OnInit {
     this.OrdersService.get().subscribe(res => {
       if (res) {
         this.orders = res as OrderViewModel[]
-
-        this.simplePaginationSer.initPagination(this.orders, 5)
-
-        // // To update the pagination options after filtering or sorting
-        // this.simplePaginationSer.spOptions.allItemsCount = filteredOrders.length;
-        // this.simplePaginationSer.update();
+        this.SimplePaginationService.initPagination(this.orders, 5)
       }
     })
   }
@@ -65,20 +60,10 @@ export class OrdersViewComponent implements OnInit {
     })
   }
 
-  // getOrdersForPage(pageNumber?: number): OrderViewModel[] {
-  //   const startIndex = (pageNumber - 1) * this.ordersPerPage;
-  //   const endIndex = startIndex + this.ordersPerPage;
-  //   return this.orders.slice(startIndex, endIndex);
-  // }
-  // getPageArray(): number[] {
-  //   const pageCount = Math.ceil(this.orders.length / this.ordersPerPage);
-  //   return Array.from({ length: pageCount }, (_, i) => i + 1);
-  // }
-
 
   getTotalPrice(products: OrderProductViewModel[]): number {
     let totalPrice = 0;
-    products.forEach(product => {
+    products?.forEach(product => {
       const productPrice = this.getProductPriceById(product.ProductId);
       totalPrice += product.Quantity * productPrice;
     });
@@ -94,11 +79,11 @@ export class OrdersViewComponent implements OnInit {
   }
 
   getNextPage() {
-    this.simplePaginationSer.getNextPage();
+    this.SimplePaginationService.getNextPage();
   }
 
   getPrevPage() {
-    this.simplePaginationSer.getPrevPage();
+    this.SimplePaginationService.getPrevPage();
   }
 
 

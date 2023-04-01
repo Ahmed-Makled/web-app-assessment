@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { TitleAndBreadcrumbsService } from 'src/app/shared/ui-elements/title-and-breadcrumbs/title-and-breadcrumbs.service';
 import { ProductsService } from '../products.service';
 import { ProductViewModel } from 'src/app/shared/models/products/product.model';
+import { SimplePaginationService } from 'src/app/shared/ui-elements/simple-pagination/simple-pagination.service';
 
 @Component({
   selector: 'app-products-view',
@@ -14,6 +15,7 @@ export class ProductsViewComponent implements OnInit {
   constructor(
     private title: Title,
     private TitleAndBreadcrumbsService: TitleAndBreadcrumbsService,
+    public SimplePaginationService: SimplePaginationService,
     private ProductsService: ProductsService,
   ) { }
 
@@ -28,8 +30,17 @@ export class ProductsViewComponent implements OnInit {
     this.ProductsService.get().subscribe(res => {
       if (res) {
         this.products = res as ProductViewModel[]
+        this.SimplePaginationService.initPagination(this.products, 5)
       }
     })
+  }
+
+  getNextPage() {
+    this.SimplePaginationService.getNextPage();
+  }
+
+  getPrevPage() {
+    this.SimplePaginationService.getPrevPage();
   }
 
 

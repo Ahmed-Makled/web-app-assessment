@@ -10,6 +10,6 @@ export class ProductsService {
     private ApiService: ApiService
   ) { }
   get() {
-    return this.ApiService.get('../../../../assets/data/porducts.json')
+    return this.ApiService.get('../../../../assets/data/products.json')
   }
 }
