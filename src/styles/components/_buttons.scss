@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------------------*/
-/* 5.06 Buttons */
+/* Buttons */
 /*------------------------------------------------------------------------------------------*/
 
 // rounded buttons styles
@@ -7,12 +7,10 @@
   display: inline-block;
   text-align: center;
   font-weight: bold;
-  @include appDir(
-    font-family,
+  @include appDir(font-family,
     ("Poppins", sans-serif),
     font-family,
-    ("flat-jooza", sans-serif)
-  );
+    ("flat-jooza", sans-serif));
   white-space: nowrap;
   padding: 14px 24px;
   border: 1px solid;
@@ -335,11 +333,11 @@
     width: 36px;
   }
 
-  > .fa {
+  >.fa {
     font-size: 18px;
   }
 
-  > img {
+  >img {
     width: 20px;
   }
 

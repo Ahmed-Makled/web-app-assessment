@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------------------*/
-/* 4. Defaults & Reset & Global elements */
+/* Defaults & Reset & Global elements */
 /*------------------------------------------------------------------------------------------*/
 * {
   box-sizing: border-box;
@@ -169,6 +169,7 @@ button {
 .fH-deg270 {
   transform: rotateY(180deg) rotate(270deg);
 }
+
 /* rotate classes */
 
 html[dir="ltr"] {
@@ -181,10 +182,11 @@ html[dir="ltr"] {
         // margin-left: 300px;
         margin-right: -300px;
       }
-      .container{
+
+      .container {
         @media #{$min_1400} {
-            width: 1200px;
-          }
+          width: 1200px;
+        }
       }
     }
   }
@@ -280,6 +282,7 @@ body {
 
     .holder {
       max-width: 550px;
+
       margin: {
         left: auto;
         right: auto;
@@ -342,7 +345,7 @@ h6 {
     width: 100%;
   }
 
-  > div {
+  >div {
     padding: 0;
 
     @media #{$min_768} {
@@ -357,7 +360,7 @@ h6 {
   }
 
   &.div-with-two-col {
-    > div {
+    >div {
       width: calc(50% - 30px);
 
       @media #{$max_767} {
@@ -367,7 +370,7 @@ h6 {
   }
 
   &.div-with-three-col {
-    > div {
+    >div {
       width: calc((100% / 3) - 30px);
 
       @media #{$max_767} {
@@ -377,7 +380,7 @@ h6 {
   }
 
   &.boxed {
-    > div {
+    >div {
       background-color: rgba($color-three, 0.08);
       padding: 40px;
       border: 1px solid rgba($color-one, 0.08);

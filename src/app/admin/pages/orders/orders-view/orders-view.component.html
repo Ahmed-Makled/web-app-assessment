@@ -2,8 +2,8 @@
   <div class="the-main-box">
     <section class="box">
       <div class="box-content">
-        <table class="goods">
-          <tr class="good goods-header">
+        <table class="table">
+          <tr class="table-row table-header">
             <th class="img-and-name">
               <h5>OrderId</h5>
             </th>
@@ -20,7 +20,7 @@
           <tr class="no-items-msg" *ngIf="!orders?.length">
             <td colspan="4">There are no orders yet.</td>
           </tr>
-          <tr class="good" *ngFor="let item of simplePaginationSer.spOptions.pagedData; trackBy: track">
+          <tr class="table-row" *ngFor="let item of simplePaginationSer.spOptions.pagedData; trackBy: track">
             <td >
              {{item?.OrderId}}
             </td>

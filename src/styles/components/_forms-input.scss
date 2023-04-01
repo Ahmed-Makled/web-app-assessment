@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------------------*/
-/* 5.10 Forms & Input */
+/* Forms & Input */
 /*------------------------------------------------------------------------------------------*/
 
 // Inputs Style
@@ -18,23 +18,23 @@
       }
     }
 
-    > .switch-container,
-    > .checkbox-container,
-    > .radio-buttons-container {
+    >.switch-container,
+    >.checkbox-container,
+    >.radio-buttons-container {
       width: calc(50% - 10px);
     }
 
-    > .switch-container,
-    > .checkbox-container,
-    > .radio-buttons-container {
+    >.switch-container,
+    >.checkbox-container,
+    >.radio-buttons-container {
       &:not(:only-child) {
         margin-bottom: 20px;
       }
     }
 
-    > .switch-container:only-of-type,
-    > .checkbox-container:only-of-type,
-    > .radio-buttons-container:only-of-type {
+    >.switch-container:only-of-type,
+    >.checkbox-container:only-of-type,
+    >.radio-buttons-container:only-of-type {
       width: 100%;
     }
 
@@ -48,9 +48,9 @@
       }
 
       .form-group,
-      > .switch-container,
-      > .checkbox-container,
-      > .radio-buttons-container {
+      >.switch-container,
+      >.checkbox-container,
+      >.radio-buttons-container {
         &:first-of-type {
           width: 100%;
         }
@@ -68,7 +68,7 @@
   }
 
   &:not(.small-fields) {
-    > .form-group {
+    >.form-group {
       width: 100%;
     }
   }
@@ -86,7 +86,7 @@
       width: 100%;
     }
 
-    > label {
+    >label {
       display: block;
       width: 100%;
       color: $color-three;
@@ -131,7 +131,7 @@
         }
       }
 
-      > .fa {
+      >.fa {
         position: absolute;
         top: 50%;
         @include translateY(-50%);
@@ -203,12 +203,10 @@
             white-space: nowrap;
             padding: 0 10px;
             border-radius: 9px;
-            @include appDir(
-              animation,
+            @include appDir(animation,
               spanFadeInLeft 0.3s ease-out both,
               animation,
-              spanFadeInRight 0.3s ease-out both
-            );
+              spanFadeInRight 0.3s ease-out both);
             display: none;
 
             &:after {
@@ -233,7 +231,7 @@
             }
 
             &:hover {
-              ~ .title {
+              ~.title {
                 display: block;
               }
             }
@@ -246,12 +244,10 @@
               background-color: $success-color;
 
               &:after {
-                @include appDir(
-                  border-color,
+                @include appDir(border-color,
                   transparent transparent transparent $success-color,
                   border-color,
-                  transparent $success-color transparent transparent
-                );
+                  transparent $success-color transparent transparent);
               }
             }
 
@@ -270,12 +266,10 @@
               background-color: $info-color;
 
               &:after {
-                @include appDir(
-                  border-color,
+                @include appDir(border-color,
                   transparent transparent transparent $info-color,
                   border-color,
-                  transparent $info-color transparent transparent
-                );
+                  transparent $info-color transparent transparent);
               }
             }
 
@@ -294,12 +288,10 @@
               background-color: $warning-color;
 
               &:after {
-                @include appDir(
-                  border-color,
+                @include appDir(border-color,
                   transparent transparent transparent $warning-color,
                   border-color,
-                  transparent $warning-color transparent transparent
-                );
+                  transparent $warning-color transparent transparent);
               }
             }
 
@@ -318,12 +310,10 @@
               background-color: $danger-color;
 
               &:after {
-                @include appDir(
-                  border-color,
+                @include appDir(border-color,
                   transparent transparent transparent $danger-color,
                   border-color,
-                  transparent $danger-color transparent transparent
-                );
+                  transparent $danger-color transparent transparent);
               }
             }
 
@@ -348,10 +338,12 @@
         .country-dial {
           @include flexbox(flex, "", center, "", "", "");
           background-color: $backgroundColor;
+
           padding: {
             left: 16px;
             right: 16px;
           }
+
           border: 1px solid transparent;
           border-right-color: #fff;
           border-top-left-radius: 14px;
@@ -378,7 +370,7 @@
           border-top-left-radius: 0;
           border-bottom-left-radius: 0;
 
-          &:focus ~ .country-dial {
+          &:focus~.country-dial {
             background-color: transparent;
             border-color: $borderColor;
             border-right-color: #fff;
@@ -387,7 +379,7 @@
       }
 
       &.two-radio-buttons {
-        > label {
+        >label {
           color: $color-three;
           font-weight: 500;
           padding: 0 8px;
@@ -471,7 +463,7 @@
       height: 0;
       opacity: 0;
 
-      &:checked + .slider {
+      &:checked+.slider {
         background-color: $color-one;
 
         &:before {
@@ -479,7 +471,7 @@
         }
       }
 
-      &:focus + .slider {
+      &:focus+.slider {
         box-shadow: 0 0 1px $color-one;
       }
     }
@@ -533,13 +525,13 @@
       display: none;
 
       &:not(:checked) {
-        & ~ label {
+        &~label {
           border: 1px solid $color-one;
         }
       }
 
       &:checked {
-        & ~ label {
+        &~label {
           &:before {
             @include flexbox(flex, "", "", "", "", "");
             background-color: $color-one;
@@ -549,7 +541,7 @@
       }
 
       &:not(:disabled) {
-        & ~ label {
+        &~label {
           &:hover {
             &:before {
               @include flexbox(flex, "", "", "", "", "");
@@ -567,7 +559,7 @@
       }
 
       &:disabled {
-        & ~ label {
+        &~label {
           border: 0;
           opacity: 0.3;
 
