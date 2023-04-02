@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { SimplePagination } from './simple-pagination';
 
 
 @Injectable({
@@ -6,17 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class SimplePaginationService {
   data: any[] = [];
-  spOptions = {
-    itemsPerPage: 10,
-    currentPage: 1,
-    totalPages: 1,
-    totalItems: 0,
-    viewItemsCountStart: 0,
-    viewItemsCountEnd: 0,
-    hasPrevPage: false,
-    hasNextPage: false,
-    pagedData: []
-  };
+  spOptions:SimplePagination= new SimplePagination()
   initPagination(data: any[], itemsPerPage: number) {
     this.data = data;
     this.spOptions.itemsPerPage = itemsPerPage;

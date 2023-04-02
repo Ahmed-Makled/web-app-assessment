@@ -84,7 +84,6 @@ export class GlobalJsFunctionsService {
             }
           }
 
-          // tslint:disable-next-line: no-bitwise
         } else if ((marker & 0xFF00) !== 0xFF00) {
           break;
         } else {
@@ -104,7 +103,6 @@ export class GlobalJsFunctionsService {
     const mm = String(date.getMonth() + 1).padStart(2, '0'); // January is 0!
     const yyyy = date.getFullYear();
     const getFormattedDate = `${dd}/${mm}/${yyyy}`;
-
     return getFormattedDate;
   }
 
@@ -116,14 +114,12 @@ export class GlobalJsFunctionsService {
     const firstDate = new Date(oldDate.year, oldDate.month, oldDate.day);
     const secondDate = new Date(newDate.year, newDate.month, newDate.day);
     const oneDay = 24 * 60 * 60 * 1000; // hours * minutes * seconds * milliseconds
-
     return Math.round(((firstDate as any) - (secondDate as any)) / oneDay);
   }
 
   // get time in specific timezone
   getTimeInSpecificTimezone(timeZone: string, niceFormat?: boolean) {
     const targetTime = new Date().toLocaleString('en-US', { timeZone });
-
     return niceFormat ? this.getFormattedDate(new Date(targetTime)) : new Date(targetTime);
   }
 
@@ -135,28 +131,4 @@ export class GlobalJsFunctionsService {
     return output;
   }
 
-  // change item class from an array of classes
-  changeClassEveryLoad(itemUniqueName: string, classesArr: string[]) {
-    const itemClass = localStorage.getItem(itemUniqueName);
-    const lastClassIndex = classesArr.length - 1;
-
-    if (itemClass) {
-      const currentClassIndex = classesArr.indexOf(itemClass);
-
-      if (currentClassIndex === lastClassIndex) {
-        localStorage.setItem(itemUniqueName, classesArr[0]);
-        return classesArr[0];
-
-      } else {
-        const newClassIndex = currentClassIndex + 1;
-
-        localStorage.setItem(itemUniqueName, classesArr[newClassIndex]);
-        return classesArr[newClassIndex];
-      }
-
-    } else {
-      localStorage.setItem(itemUniqueName, classesArr[0]);
-      return classesArr[0];
-    }
-  }
 }
