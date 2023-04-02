@@ -18,7 +18,6 @@ export class StorageService {
 
   setItem(key: string, value: any): BehaviorSubject<any> {
     localStorage.setItem(key, JSON.stringify(value));
-
     if (this.cache[key]) {
       this.cache[key].next(value);
       return this.cache[key];
